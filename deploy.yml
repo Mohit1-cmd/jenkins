@@ -1,0 +1,15 @@
+---
+- name: Deploy Calculator App
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Pull Docker Image from Hub
+      command: docker pull mohit67/calculator-app:latest
+
+    - name: Stop Old Container
+      command: docker rm -f calculator-container
+      ignore_errors: yes # Don't fail if container doesn't exist yet
+
+    - name: Run New Container
+      command: docker run -d --name calculator-container mohit67/calculator-app:latest
+
