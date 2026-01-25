@@ -1,0 +1,6 @@
+workspace/
+builds/
+last*
+nextBuildNumber
+out/
+bin/
